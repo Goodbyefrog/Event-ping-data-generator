@@ -6,7 +6,7 @@ A modular Java-based event data generator that simulates realistic user and devi
 
 ## 📌 Project Purpose
 
-This is the **first project** in the [KSU Data Engineering GitHub series](https://github.com/YOUR_USERNAME) and focuses on generating high-quality, synthetic data to power downstream processes like:
+This is the **first project** in the [KSU Data Engineering GitHub series](https://github.com/Goodbyefrog) and focuses on generating high-quality, synthetic data to power downstream processes like:
 
 - Stream processing pipelines
 - ETL systems
@@ -79,8 +79,7 @@ Visualization with Apache Superset
 🤝 Contributing
 Contributions welcome! Fork the repo, make changes, and submit a PR.
 
-📜 License
-MIT License — see LICENSE for details.
+
 
 👤 Author
 Tristan Rocke — KSU Student | Aspiring Data Engineer
