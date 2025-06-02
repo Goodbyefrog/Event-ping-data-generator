@@ -82,8 +82,8 @@ Contributions welcome! Fork the repo, make changes, and submit a PR.
 
 
 👤 Author
-Tristan Rocke — KSU Student | Aspiring Data Engineer
-Follow more projects in this series on the KSU Data Engineering GitHub/Reddit page.
+Tristan R.
+Follow more projects in this series.
 
 
 
