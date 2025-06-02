@@ -56,7 +56,7 @@ Tools: Custom validators, timestamp logic, and enum-driven randomization
 Getting Started
 ----------------
 Clone this repository:
-git clone https://github.com/YOUR_USERNAME/event-data-generator.git
+git clone https://github.com/Goodbyefrog/event-data-generator.git
 cd event-data-generator
 
 Build and run with your favorite IDE or:
