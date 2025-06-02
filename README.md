@@ -72,7 +72,7 @@ Coming Soon
 
 Real-time data simulation pipeline
 
-Bridge to MSQ / BigQuery
+Bridge to MySQL / BigQuery
 
 
 
