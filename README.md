@@ -68,13 +68,13 @@ PingEvent{user=EchoKnight, userId=..., device=DESKTOP (iMac), location=Castleber
 PingEvent{user=AriWave, device=TABLET (iPad Pro), location=Edgewood, eventType=COFFEE, timestamp=2025-05-22T23:55:17}
 
 Coming Soon
-Apache Kafka integration for streaming
+ integration for streaming
 
 Real-time data simulation pipeline
 
-Sink to PostgreSQL / BigQuery
+Bridge to MSQ / BigQuery
 
-Visualization with Apache Superset
+
 
 🤝 Contributing
 Contributions welcome! Fork the repo, make changes, and submit a PR.
