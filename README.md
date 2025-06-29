@@ -1,90 +1,142 @@
-# 🎯 Event Data Generator
+🎯 Event Data Generator 1.5
 
-A modular Java-based event data generator that simulates realistic user and device activity across various locations in Atlanta. Designed for use in data engineering pipelines, testing, and prototyping.
+A modular Java-based event data generator that simulates realistic user and device activity across various neighborhoods in Atlanta. Built with extensibility in mind, this project is ideal for data engineering pipelines, real-time analytics simulations, and cloud ingestion testing.
 
----
+📌 Project Purpose
 
-## 📌 Project Purpose
+This generator is designed to provide high-quality, schema-consistent synthetic data for downstream processes like:
 
- focuses on generating high-quality, synthetic data to power downstream processes like:
+✅ Stream processing (Kafka, Kinesis)
 
-- Stream processing pipelines
-- ETL systems
-- Data warehousing simulations
-- Real-time dashboards
+✅ Batch ETL jobs
 
----
+✅ Data warehouse testing (BigQuery, Snowflake, Redshift)
 
-## 🏗 Features
+✅ Business intelligence dashboards (Looker, Tableau)
 
-- Generates **randomized user profiles** with attributes like username, age, gender, language, and email.
-- Simulates **device interactions** (phones, tablets, desktops, wearables, etc.).
-- Captures **event metadata** including:
-  - Event type (e.g. coffee, dancing, networking)
-  - Location (e.g. Grant Park, Castleberry Hill, etc.)
-  - Device type/model
-  - Timestamps
+🏗 Features
 
----
+🧑‍🤝‍🧑 Consistent User Generation
 
-## 📦 Data Model
+Random but validated user profiles
 
-Each record is a `PingEvent` object:
+Unique userId per user (now fixed for reuse)
 
-```java
+Attributes include name, email, age, gender, language
+
+💻 Device Generation
+
+Each user is assigned a consistent device (one-to-one)
+
+Device includes ID, type, model, OS, manufacturer
+
+📍 Location + Event Metadata
+
+Covers locations across Atlanta (e.g., Grant Park, Summerhill)
+
+Event types include networking, nightlife, pop-up shops, tech panels
+
+💰 Profit Simulation
+
+PingEvent_Profit now simulates economic impact per event
+
+Ranges from $20.00 - $150.00 per event
+
+🧾 Export System (CLI-Driven)
+
+Export as .json or .csv via an intuitive CLI
+
+Strategy pattern used for clean file-type handling
+
+🧑‍💻 Tech Stack
+
+Component---
+
+Stack
+Language
+Java 17
+
+Design
+Interface-driven, modular, OOP
+
+CLI
+Java Scanner-based menu loop
+
+Data Serialization
+Gson (with custom adapters for LocalDate & LocalDateTime)
+
+Cloud Ready--
+AWS S3 integration (coming soon)
+
+🧱 Data Model
+
+Each record is a PingEvent:
+
 PingEvent {
   user: User,
-  userId: UUID,
   device: Device,
   deviceType: DeviceType,
   location: AtlantaLocation,
-  lat: double,
-  lon: double,
   eventType: EventType,
-  timestamp: LocalDateTime
+  timestamp: LocalDateTime,
+  PingEvent_Profit: double
 }
 
+Example Output:
 
-Tech Stack
-----------
-Language: Java 17
-Design: Modular, Object-Oriented
-Structure: Interface-driven services
-Tools: Custom validators, timestamp logic, and enum-driven randomization
+{
+  "user": {
+    "userId": "56e557d6-...",
+    "username": "LexNova",
+    "email": "lexnova890@example.com"
+  },
+  "device": {
+    "deviceId": "Device-abc123",
+    "deviceType": "MOBILE",
+    "model": "iPhone 14"
+  },
+  "location": "GRANT_PARK",
+  "eventType": "TECH_PANEL",
+  "timestamp": "2025-06-25T10:40:16",
+  "PingEvent_Profit": 110.78
+}
 
+🧪 How to Run------------------
 
-Getting Started
-----------------
-Clone this repository:
-git clone https://github.com/Goodbyefrog/event-data-generator.git
-cd event-data-generator
+# Clone the repo
+https://github.com/Goodbyefrog/event-data-generator.git
 
-Build and run with your favorite IDE or:
-javac Main.java
-java Main
+# Compile
+javac -d out src/org/Data_Generator/**/*.java
 
-🧪 Sample Output
-PingEvent{user=EchoKnight, userId=..., device=DESKTOP (iMac), location=Castleberry Hill, eventType=DANCING, timestamp=2025-05-11T17:43:41}
-PingEvent{user=AriWave, device=TABLET (iPad Pro), location=Edgewood, eventType=COFFEE, timestamp=2025-05-22T23:55:17}
+# Run the CLI
+java -cp out org.Data_Generator.App
 
-Coming Soon
- integration for streaming
+You'll see a menu like:
 
-Real-time data simulation pipeline
+[1] Generate Ping Events
+[2] View Generated Events
+[3] Export Events to Local File
+[4] Upload Events to S3 (coming soon)
+[5] Exit
 
-Bridge to MySQL / BigQuery
+🧭 Coming Soon -------------
 
+☁️ AWS S3 Upload Support
 
+🌀 Kafka Stream Integration
 
-🤝 Contributing
-Contributions welcome! Fork the repo, make changes, and submit a PR.
+🗂️ Automatic MySQL / BigQuery table population
 
+📊 Dashboard-ready export templates
 
+🤝 Contributing------------------
 
-👤 Author
+Fork the repo, submit a pull request, or suggest enhancements via issues!
+
+👤 Author--------
+
 Tristan R.
-Follow more projects in this series.
-
-
-
+Open-source learner and aspiring data engineer.
+Follow for more real-world tech capstone builds.
 
