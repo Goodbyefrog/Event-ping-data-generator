@@ -1,89 +1,67 @@
-🎯 Event Data Generator 1.5
+# 🎯 Event Data Generator v1.5
 
-A modular Java-based event data generator that simulates realistic user and device activity across various neighborhoods in Atlanta. Built with extensibility in mind, this project is ideal for data engineering pipelines, real-time analytics simulations, and cloud ingestion testing.
+A modular **Java-based event simulator** that generates realistic user, device, and event data across neighborhoods in Atlanta. Built with extensibility in mind, this tool is ideal for **data engineering pipelines**, **analytics simulations**, and **cloud ingestion testing**.
 
-📌 Project Purpose
+---
 
-This generator is designed to provide high-quality, schema-consistent synthetic data for downstream processes like:
+## 📌 Purpose
 
-✅ Stream processing (Kafka, Kinesis)
+Generate **schema-consistent synthetic data** for:
 
-✅ Batch ETL jobs
+✅ Stream processing (Kafka, Kinesis)  
+✅ Batch ETL workflows  
+✅ Data warehouse testing (BigQuery, Snowflake, Redshift)  
+✅ Business dashboards (Looker, Tableau)
 
-✅ Data warehouse testing (BigQuery, Snowflake, Redshift)
+---
 
-✅ Business intelligence dashboards (Looker, Tableau)
+## 🏗️ Key Features
 
-🏗 Features
+### 🧑‍🤝‍🧑 Consistent User Generation
+- Unique, reusable `userId` per user  
+- Randomized names, age, gender, language, email  
+- Registration date support  
 
-🧑‍🤝‍🧑 Consistent User Generation
+### 💻 Device Simulation
+- 1-to-1 relationship between user and device  
+- Randomized device attributes (type, model, OS, manufacturer)  
+- Consistent `deviceId` per user  
 
-Random but validated user profiles
+### 📍 Location + Event Metadata
+- Includes Atlanta areas like **Grant Park**, **Summerhill**, etc.  
+- Event types: nightlife, tech panels, pop-ups, networking  
+- Timestamps reflect recent activity  
 
-Unique userId per user (now fixed for reuse)
+### 💰 Profit Simulation
+- New `PingEvent_Profit` field per event  
+- Value range: **$20.00 – $150.00**  
+- Captures estimated revenue per event  
 
-Attributes include name, email, age, gender, language
+### 🧾 Export System (CLI-Driven)
+- Export to `.json` or `.csv`  
+- Intuitive terminal menu  
+- Strategy Pattern for file handling  
+- Custom `Gson` adapters for date/time serialization  
 
-💻 Device Generation
+---
 
-Each user is assigned a consistent device (one-to-one)
+## 💻 Tech Stack
 
-Device includes ID, type, model, OS, manufacturer
+| Component          | Stack                           |
+|--------------------|----------------------------------|
+| Language           | Java 17                         |
+| Design             | Interface-driven, OOP           |
+| CLI                | Scanner-based user interaction  |
+| Serialization      | Gson w/ custom adapters         |
+| Cloud Integration  | AWS S3 support (in progress)    |
 
-📍 Location + Event Metadata
+---
 
-Covers locations across Atlanta (e.g., Grant Park, Summerhill)
+## 🧱 Data Model Overview
 
-Event types include networking, nightlife, pop-up shops, tech panels
+Each record is a `PingEvent` object:
 
-💰 Profit Simulation
-
-PingEvent_Profit now simulates economic impact per event
-
-Ranges from $20.00 - $150.00 per event
-
-🧾 Export System (CLI-Driven)
-
-Export as .json or .csv via an intuitive CLI
-
-Strategy pattern used for clean file-type handling
-
-🧑‍💻 Tech Stack
-
-Component---
-
-Stack
-Language
-Java 17
-
-Design
-Interface-driven, modular, OOP
-
-CLI
-Java Scanner-based menu loop
-
-Data Serialization
-Gson (with custom adapters for LocalDate & LocalDateTime)
-
-Cloud Ready--
-AWS S3 integration (coming soon)
-
-🧱 Data Model
-
-Each record is a PingEvent:
-
-PingEvent {
-  user: User,
-  device: Device,
-  deviceType: DeviceType,
-  location: AtlantaLocation,
-  eventType: EventType,
-  timestamp: LocalDateTime,
-  PingEvent_Profit: double
-}
-
-Example Output:
-
+```json
 {
   "user": {
     "userId": "56e557d6-...",
@@ -101,42 +79,45 @@ Example Output:
   "PingEvent_Profit": 110.78
 }
 
-🧪 How to Run------------------
+🚀 How to Run
+Clone the repository----
+git clone https://github.com/Goodbyefrog/event-data-generator.git
+cd event-data-generator
 
-# Clone the repo
-https://github.com/Goodbyefrog/event-data-generator.git
 
-# Compile
+Compile the project-----
 javac -d out src/org/Data_Generator/**/*.java
 
-# Run the CLI
+Run the CLI-------
 java -cp out org.Data_Generator.App
 
-You'll see a menu like:
 
-[1] Generate Ping Events
-[2] View Generated Events
-[3] Export Events to Local File
-[4] Upload Events to S3 (coming soon)
+
+Interactive CLI Options
+
+[1] Generate Ping Events  
+[2] View Generated Events  
+[3] Export Events to Local File  
+[4] Upload Events to S3 (coming soon)  
 [5] Exit
 
-🧭 Coming Soon -------------
 
+🧭 Coming Soon
 ☁️ AWS S3 Upload Support
 
 🌀 Kafka Stream Integration
 
-🗂️ Automatic MySQL / BigQuery table population
+🗂️ Auto-insertion into MySQL / BigQuery
 
-📊 Dashboard-ready export templates
+📊 Dashboard-ready output templates
 
-🤝 Contributing------------------
+🤝 Contributing
+Pull requests welcome! Fork, improve, or suggest features via GitHub Issues.
 
-Fork the repo, submit a pull request, or suggest enhancements via issues!
-
-👤 Author--------
-
+👤 Author
 Tristan R.
-Open-source learner and aspiring data engineer.
-Follow for more real-world tech capstone builds.
+Open-source learner | Studdnt |Aspiring data engineer
+
+
+
 
